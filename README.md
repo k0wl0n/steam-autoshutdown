@@ -19,10 +19,14 @@ It monitors your global network traffic. When it detects a sustained period of h
 
 ## Installation
 
-### Prerequisites
-- Go 1.20 or higher (if building from source)
+### Homebrew (Recommended)
 
-### Build
+```bash
+brew tap k0wl0n/tap
+brew install steam-autoshutdown
+```
+
+### Build from Source
 1.  Open Terminal in this directory.
 2.  Build the binary:
     ```bash

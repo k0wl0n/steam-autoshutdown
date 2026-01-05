@@ -34,6 +34,27 @@ archives:
     - goos: windows
       format: zip
 
+brews:
+  - repository:
+      owner: k0wl0n
+      name: homebrew-tap
+    
+    # The name of the formula.
+    name: steam-autoshutdown
+
+    # Homepage definition.
+    homepage: "https://github.com/k0wl0n/steam-autoshutdown"
+
+    # Description of the software.
+    description: "Automatically shuts down your computer when Steam downloads finish."
+
+    # License definition.
+    license: "MIT"
+
+    # Test block definition.
+    test: |
+      system "#{bin}/steam-autoshutdown --version"
+
 checksum:
   name_template: 'checksums.txt'
 

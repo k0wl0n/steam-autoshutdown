@@ -5,6 +5,15 @@
 - Go 1.24 or higher (if building from source)
 - `sudo` privileges (required for system shutdown)
 
+## Homebrew (macOS/Linux)
+
+The easiest way to install is via Homebrew:
+
+```bash
+brew tap k0wl0n/tap
+brew install steam-autoshutdown
+```
+
 ## Building from Source
 
 1. Clone the repository:
