@@ -39,11 +39,33 @@ sudo ./steamshutdown
 
 ### Customization (Flags)
 
-You can customize the thresholds using flags:
+| Flag | Short | Default | Description |
+|------|-------|---------|-------------|
+| `--start-threshold` | `-s` | `500` | Network speed (KB/s) to identify a download has started. |
+| `--stop-threshold` | `-e` | `100` | Network speed (KB/s) to identify a download has finished. |
+| `--idle-duration` | `-d` | `60` | Duration (seconds) of low traffic before shutting down. |
+| `--interface` | `-i` | `""` | Specific network interface (e.g., `en0`). Default: All non-loopback. |
+| `--dry-run` | | `false` | Simulate the process without actually shutting down. |
 
--   `--start-threshold`: Speed in KB/s to trigger "Downloading" state.
--   `--stop-threshold`: Speed in KB/s to consider "Idle".
--   `--idle-duration`: Seconds to wait in idle state before shutting down.
+### Demo Output
+
+Here is an example of a dry-run execution:
+
+```text
+$ sudo ./steamshutdown --dry-run --start-threshold 10 --stop-threshold 5 --idle-duration 5
+Starting Steam Auto Shutdown Monitor...
+-------------------------------------
+Configuration:
+  Start Threshold: 10 KB/s
+  Stop Threshold:  5 KB/s
+  Idle Duration:   5 seconds
+  Interface:       ALL (excluding loopback)
+  Mode:            DRY RUN (No actual shutdown)
+-------------------------------------
+Waiting for download to start... Current speed: 12015.21 KB/s   
+Download detected! Speed: 12015.21 KB/s. Monitoring for completion...
+Downloading... Speed: 12003.15 KB/s
+```
 
 **Example:**
 Wait for a download to start (threshold 1MB/s), and shut down only if speed stays below 50KB/s for 2 minutes:

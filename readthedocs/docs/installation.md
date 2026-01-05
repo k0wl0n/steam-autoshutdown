@@ -19,7 +19,7 @@
    ```
    Or manually with Go:
    ```bash
-   go build -o dist/steamshutdown main.go
+   go build -o steamshutdown main.go
    ```
 
 ## Binary Download
