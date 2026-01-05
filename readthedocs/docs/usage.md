@@ -36,6 +36,26 @@ Download detected! Speed: 12015.21 KB/s. Monitoring for completion...
 Downloading... Speed: 12003.15 KB/s
 ```
 
+Here is an example of a live run where the download dips but recovers before finally finishing:
+
+```text
+$ sudo ./steamshutdown --start-threshold 10
+Password:
+Starting Steam Auto Shutdown Monitor...
+-------------------------------------
+Configuration:
+  Start Threshold: 10 KB/s
+  Stop Threshold:  100 KB/s
+  Idle Duration:   60 seconds
+  Interface:       ALL (excluding loopback)
+-------------------------------------
+Waiting for download to start... Current speed: 11998.78 KB/s
+Download detected! Speed: 11998.78 KB/s. Monitoring for completion...
+Speed low (29.20 KB/s). Shutting down in 57 seconds...
+Speed recovered (552.26 KB/s). Resuming download watch.
+Speed low (2.61 KB/s). Shutting down in 45 seconds...
+```
+
 ## Examples
 
 ### Basic Usage
