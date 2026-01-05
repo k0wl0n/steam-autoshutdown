@@ -1,0 +1,13 @@
+# Binaries
+dist/
+steamshutdown
+
+# MacOS
+.DS_Store
+
+# IDE
+.idea/
+.vscode/
+
+# Mise
+.mise/

@@ -1,0 +1,49 @@
+version: '3'
+
+tasks:
+  default:
+    desc: List available tasks
+    cmds:
+      - task -l
+
+  build:
+    desc: Build the application
+    cmds:
+      - go build -o dist/steamshutdown main.go
+
+  run:
+    desc: Run the application (requires sudo for shutdown functionality)
+    cmds:
+      - sudo go run main.go
+
+  clean:
+    desc: Clean build artifacts
+    cmds:
+      - rm -rf dist/
+
+  test:
+    desc: Run tests
+    cmds:
+      - go test ./...
+
+  lint:
+    desc: Run linter
+    cmds:
+      - golangci-lint run
+
+  release:
+    desc: Release with GoReleaser (snapshot)
+    cmds:
+      - goreleaser release --snapshot --clean
+
+  docs:serve:
+    desc: Serve documentation locally
+    dir: readthedocs
+    cmds:
+      - mkdocs serve
+
+  docs:build:
+    desc: Build documentation
+    dir: readthedocs
+    cmds:
+      - mkdocs build
