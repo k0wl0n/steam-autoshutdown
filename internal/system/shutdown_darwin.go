@@ -1,3 +1,5 @@
+//go:build darwin
+
 package system
 
 import (
@@ -9,7 +11,7 @@ import (
 // It first attempts a graceful shutdown using AppleScript (System Events).
 // If that fails, it falls back to the 'shutdown' command which requires root privileges.
 func Shutdown(dryRun bool) error {
-	fmt.Println("Initiating shutdown sequence...")
+	fmt.Println("Initiating shutdown sequence (macOS)...")
 
 	if dryRun {
 		fmt.Println("[DRY RUN] Shutdown command would be executed here.")

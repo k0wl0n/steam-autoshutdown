@@ -1,4 +1,4 @@
-module github.com/k0wl0n/steam-mac-autoshutdown
+module github.com/k0wl0n/steam-autoshutdown
 
 go 1.24.5
 

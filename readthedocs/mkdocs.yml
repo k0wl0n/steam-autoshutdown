@@ -1,7 +1,7 @@
 site_name: Steam Auto Shutdown
-site_description: Automatically shuts down your Mac when Steam downloads finish.
+site_description: Automatically shuts down your computer when Steam downloads finish.
 site_author: k0wl0n
-repo_url: https://github.com/k0wl0n/steam-mac-autoshutdown
+repo_url: https://github.com/k0wl0n/steam-autoshutdown
 
 theme:
   name: material

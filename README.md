@@ -1,8 +1,14 @@
 # Steam Auto Shutdown (Golang Edition)
 
-This is a robust command-line tool written in Go that automatically shuts down your Mac when Steam (or any other application) finishes downloading large files.
+This is a robust command-line tool written in Go that automatically shuts down your computer when Steam (or any other application) finishes downloading large files.
 
 It monitors your global network traffic. When it detects a sustained period of high speed (downloading) followed by a period of low speed (finished), it triggers a system shutdown.
+
+## Supported Platforms
+
+- **macOS** (AppleScript / `shutdown`)
+- **Linux** (`shutdown`)
+- **Windows** (`shutdown.exe`)
 
 ## How It Works
 

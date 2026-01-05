@@ -9,8 +9,8 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/k0wl0n/steam-mac-autoshutdown.git
-   cd steam-mac-autoshutdown
+   git clone https://github.com/k0wl0n/steam-autoshutdown.git
+   cd steam-autoshutdown
    ```
 
 2. Build the binary using Taskfile (recommended):
@@ -24,4 +24,4 @@
 
 ## Binary Download
 
-Check the [Releases](https://github.com/k0wl0n/steam-mac-autoshutdown/releases) page for pre-built binaries for your operating system.
+Check the [Releases](https://github.com/k0wl0n/steam-autoshutdown/releases) page for pre-built binaries for your operating system.

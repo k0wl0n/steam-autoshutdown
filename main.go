@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/k0wl0n/steam-mac-autoshutdown/cmd"
+	"github.com/k0wl0n/steam-autoshutdown/cmd"
 )
 
 func main() {

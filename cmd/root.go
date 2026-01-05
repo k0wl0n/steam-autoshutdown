@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/k0wl0n/steam-mac-autoshutdown/internal/monitor"
+	"github.com/k0wl0n/steam-autoshutdown/internal/monitor"
 	"github.com/spf13/cobra"
 )
 

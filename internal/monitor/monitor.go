@@ -6,7 +6,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/k0wl0n/steam-mac-autoshutdown/internal/system"
+	"github.com/k0wl0n/steam-autoshutdown/internal/system"
 	"github.com/shirou/gopsutil/v3/net"
 )
 
