@@ -8,6 +8,7 @@ import (
 
 	"github.com/k0wl0n/steam-autoshutdown/internal/system"
 	"github.com/shirou/gopsutil/v3/net"
+	"github.com/shirou/gopsutil/v3/process"
 )
 
 // Config holds the settings for the monitor.
@@ -17,6 +18,7 @@ type Config struct {
 	IdleDurationSeconds int
 	DryRun              bool
 	InterfaceName       string
+	CheckSteam          bool
 }
 
 // State represents the current status of the download monitor.
@@ -42,6 +44,9 @@ func Start(cfg Config) error {
 	}
 	if cfg.DryRun {
 		fmt.Println("  Mode:            DRY RUN (No actual shutdown)")
+	}
+	if cfg.CheckSteam {
+		fmt.Println("  Steam Check:     ENABLED")
 	}
 	fmt.Println("-------------------------------------")
 
@@ -89,7 +94,43 @@ func Start(cfg Config) error {
 	ticker := time.NewTicker(1 * time.Second)
 	defer ticker.Stop()
 
+	// Helper to check if Steam is running
+	isSteamRunning := func() bool {
+		processes, err := process.Processes()
+		if err != nil {
+			return false
+		}
+		for _, p := range processes {
+			name, err := p.Name()
+			if err != nil {
+				continue
+			}
+			// Check for "steam" (linux), "steam.exe" (windows), or "steam_osx" (macOS)
+			if strings.EqualFold(name, "steam") || strings.EqualFold(name, "steam.exe") || strings.EqualFold(name, "steam_osx") {
+				return true
+			}
+		}
+		return false
+	}
+
 	for range ticker.C {
+		// Optional: Check if Steam is running if configured
+		if cfg.CheckSteam {
+			if !isSteamRunning() {
+				fmt.Printf("\r[Info] Steam process not found. Waiting...                 ")
+				// We don't exit, just wait until Steam starts or user stops
+				// Alternatively, we could exit if the user wants strictly Steam-only monitoring
+				// But standard behavior is usually "monitor traffic", check process as a gate
+
+				// Reset state if Steam closes mid-download
+				if currentState != StateWaiting {
+					currentState = StateWaiting
+					fmt.Printf("\nSteam closed. Resetting to waiting state.\n")
+				}
+				continue
+			}
+		}
+
 		// Get current network counters
 		totalBytesRecv, err := getTotalBytes()
 		if err != nil {
