@@ -1,4 +1,7 @@
-# Steam Auto Shutdown (Golang Edition)
+# Steam Auto Shutdown
+
+<img width="1600" height="621" alt="image" src="https://github.com/user-attachments/assets/76a72abd-ea30-4ffe-80ee-2b4aac832ec7" />
+
 
 This is a robust command-line tool written in Go that automatically shuts down your computer when Steam (or any other application) finishes downloading large files.
 
