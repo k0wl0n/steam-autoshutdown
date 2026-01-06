@@ -38,22 +38,35 @@ brews:
   - repository:
       owner: k0wl0n
       name: homebrew-tap
+      token: "{{ .Env.GH_PAT }}"
     
-    # The name of the formula.
+    commit_author:
+      name: k0wl0n
+      email: wahyuanggana1@gmail.com
+
+    directory: Formula
+    
     name: steam-autoshutdown
-
-    # Homepage definition.
     homepage: "https://github.com/k0wl0n/steam-autoshutdown"
-
-    # Description of the software.
     description: "Automatically shuts down your computer when Steam downloads finish."
-
-    # License definition.
     license: "MIT"
-
-    # Test block definition.
+    
     test: |
       system "#{bin}/steam-autoshutdown --version"
+
+scoops:
+  - repository:
+      owner: k0wl0n
+      name: scoop-bucket
+      token: "{{ .Env.GH_PAT }}"
+    
+    commit_author:
+      name: k0wl0n
+      email: wahyuanggana1@gmail.com
+
+    homepage: "https://github.com/k0wl0n/steam-autoshutdown"
+    description: "Automatically shuts down your computer when Steam downloads finish."
+    license: "MIT"
 
 checksum:
   name_template: 'checksums.txt'
